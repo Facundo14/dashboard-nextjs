@@ -7,15 +7,26 @@ import { notFound } from "next/navigation";
 interface Props {
   params: { id: string };
 }
+//! En build time
+export async function generateStaticParams() {
 
+  const static151Pokemons = Array.from({ length: 250 }).map( (v, i) => `${i + 1}` );
 
-//! en BuildTime
-export async function gerateStaticParams(){
+  return static151Pokemons.map( id => ({
+    id: id
+  }));
 
-  const static250Pokmons = Array.from({ length: 250 }).map( (v,i) => `${i + 1}`);
-  
-  return static250Pokmons.map( id => ({ id: id }))
+  // return [
+  //   { id: '1' },
+  //   { id: '2' },
+  //   { id: '3' },
+  //   { id: '4' },
+  //   { id: '5' },
+  //   { id: '6' },
+  // ]
 }
+
+
 
 
 export async function generateMetadata({ params }:Props): Promise<Metadata> {
@@ -35,6 +46,7 @@ export async function generateMetadata({ params }:Props): Promise<Metadata> {
     }
   }
 }
+
 
 const getPokemon = async(id: string): Promise<Pokemon> => {
 

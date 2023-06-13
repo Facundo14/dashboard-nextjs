@@ -11,7 +11,7 @@ interface Props {
 //! En build time
 export async function generateStaticParams() {
 
-  const data:PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+  const data:PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=250`)
     .then( res => res.json() );
 
     const static151Pokemons = data.results.map( pokemon => ({
