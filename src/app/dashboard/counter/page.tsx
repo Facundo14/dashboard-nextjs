@@ -1,4 +1,4 @@
-import { CartCounter } from "@/ShoppingCart";
+import { CartCounter } from "@/shopping-cart";
 import type { Metadata } from "next";
 
 
